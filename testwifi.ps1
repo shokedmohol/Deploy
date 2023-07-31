@@ -29,6 +29,9 @@ $wifiProfileXml = @"
 </WLANProfile>
 "@
 
+# Ensure the "C:\Temp" directory exists
+$null = New-Item -ItemType Directory -Path "C:\Temp" -ErrorAction SilentlyContinue
+
 # Save the Wi-Fi profile to a temporary XML file
 $profilePath = "C:\Temp\$wifiSSID.xml"
 $wifiProfileXml | Out-File $profilePath -Encoding UTF8
