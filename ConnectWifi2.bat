@@ -32,6 +32,9 @@ echo ^</WLANProfile^> >> "%wifiSSID%.xml"
 :: Add the Wi-Fi profile to the system
 netsh wlan add profile filename="%wifiSSID%.xml"
 
+:: Set the profile to connect automatically
+netsh wlan set profileparameter name="%wifiSSID%" connectiontype=ESS autoconnect=yes
+
 :: Connect to the Wi-Fi network
 netsh wlan connect name="%wifiSSID%"
 
